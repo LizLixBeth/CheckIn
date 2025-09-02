@@ -1,0 +1,22 @@
+:root{
+  --bg:#0b0b0f; --fg:#e6e6ea; --muted:#a1a1aa;
+  --card:#12121a; --border:#242433; --danger:#ef4444;
+}
+*{box-sizing:border-box}
+body{margin:0; font-family:system-ui,Segoe UI,Roboto,Inter,Arial; background:var(--bg); color:var(--fg)}
+.header{display:flex; justify-content:space-between; align-items:center; padding:14px 18px; border-bottom:1px solid var(--border)}
+.header a{color:var(--fg); text-decoration:none; margin-left:12px}
+.container{max-width:980px; margin:20px auto; padding:0 14px}
+.grid{display:grid; grid-template-columns:1fr; gap:18px}
+@media (min-width:900px){ .grid{grid-template-columns:1fr 1fr} }
+.card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px}
+label{display:block; margin:10px 0 6px}
+.options{display:flex; flex-wrap:wrap; gap:10px 16px}
+.options.column{flex-direction:column}
+.checkbox{margin-top:10px}
+.btn{margin-top:14px; padding:10px 14px; border-radius:12px; background:#fff; color:#000; border:none; cursor:pointer}
+.muted{color:var(--muted); font-size:0.9rem}
+.list{display:flex; flex-direction:column; gap:12px}
+.row{padding:10px 12px; border:1px solid var(--border); border-radius:12px}
+.chip{display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; border:1px solid var(--border)}
+.chip.danger{background:color-mix(in oklab, var(--danger) 20%, transparent); color:#fecaca}

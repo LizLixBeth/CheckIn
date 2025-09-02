@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ app_name }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<header class="header">
+  <h1>{{ app_name }}</h1>
+  <nav><a href="{{ url_for('dashboard') }}">Dashboard</a></nav>
+</header>
+
+<main class="container">
+  <form class="card" method="post" action="{{ url_for('submit') }}">
+    <h2>New Check‑In</h2>
+
+    <label>Energy Level</label>
+    <div class="options">
+      <label><input type="radio" name="energy_level" value="High" required> High</label>
+      <label><input type="radio" name="energy_level" value="Medium"> Medium</label>
+      <label><input type="radio" name="energy_level" value="Low"> Low</label>
+      <label><input type="radio" name="energy_level" value="Very Low"> Very Low</label>
+    </div>
+
+    <label>Symptom Level</label>
+    <div class="options">
+      <label><input type="radio" name="symptom_level" value="Low" required> Low</label>
+      <label><input type="radio" name="symptom_level" value="Mild"> Mild</label>
+      <label><input type="radio" name="symptom_level" value="High"> High</label>
+      <label><input type="radio" name="symptom_level" value="Very High"> Very High</label>
+    </div>
+
+    <label>Overall Vibes</label>
+    <div class="options column">
+      <label><input type="radio" name="overall_vibes" value="5 - Slaying so hard rn" required> 5 - Slaying so hard rn</label>
+      <label><input type="radio" name="overall_vibes" value="4 - Light glitch in the Matrix"> 4 - Light glitch in the Matrix</label>
+      <label><input type="radio" name="overall_vibes" value="3 - Lowkey not vibing tbh"> 3 - Lowkey not vibing tbh</label>
+      <label><input type="radio" name="overall_vibes" value="2 - Today says 'nope'"> 2 - Today says 'nope'</label>
+      <label><input type="radio" name="overall_vibes" value="1 - Big yikes"> 1 - Big yikes</label>
+    </div>
+
+    <label class="checkbox">
+      <input type="checkbox" name="support_needed" value="true"> Support Needed?
+    </label>
+
+    <label>Status</label>
+    <div class="options">
+      <label><input type="radio" name="status" value="On time" checked> On time</label>
+      <label><input type="radio" name="status" value="Late"> Late</label>
+      <label><input type="radio" name="status" value="Missed"> Missed</label>
+      <label><input type="radio" name="status" value="Extra"> Extra</label>
+    </div>
+
+    <button type="submit" class="btn">Submit</button>
+    <p class="muted">Submits locally to SQLite. No 3rd‑party services.</p>
+  </form>
+</main>
+</body>
+</html>

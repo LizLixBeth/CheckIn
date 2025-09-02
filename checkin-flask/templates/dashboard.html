@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ app_name }} • Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<header class="header">
+  <h1>Dashboard</h1>
+  <nav><a href="{{ url_for('home') }}">New Check‑In</a></nav>
+</header>
+
+<main class="container grid">
+  <section class="card">
+    <h2>Recent Check‑Ins</h2>
+    <div class="list">
+      {% for c in checkins %}
+        <div class="row">
+          <div class="muted">{{ c['created_at'] }}</div>
+          <div><strong>Energy:</strong> {{ c['energy_level'] }} • <strong>Symptoms:</strong> {{ c['symptom_level'] }}</div>
+          <div><strong>Vibe:</strong> {{ c['overall_vibes'] }} • <strong>Status:</strong> {{ c['status'] }}
+            {% if c['support_needed'] %}<span class="chip danger">Support</span>{% endif %}
+          </div>
+        </div>
+      {% else %}
+        <p class="muted">No entries yet.</p>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Message Centre</h2>
+    <div class="list">
+      {% for m in messages %}
+        <div class="row">
+          <div class="muted">{{ m['created_at'] }}</div>
+          <div><strong>{{ m['type'] }}</strong> • Follow‑up: <strong>{{ m['follow_up'] }}</strong> • {{ m['status'] }}</div>
+        </div>
+      {% else %}
+        <p class="muted">No messages yet.</p>
+      {% endfor %}
+    </div>
+  </section>
+</main>
+</body>
+</html>
